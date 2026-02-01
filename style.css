@@ -4,7 +4,6 @@
     box-sizing: border-box;
     font-family: "Segoe UI", sans-serif;
 }
-
 body {
     height: 100vh;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
@@ -13,16 +12,12 @@ body {
     align-items: center;
     overflow: hidden;
 }
-
-/* 💕 HEART BACKGROUND */
 .hearts {
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 0;
 }
-
-/* 💖 MAIN CARD */
 .container {
     position: relative;
     z-index: 2;
@@ -35,7 +30,6 @@ body {
     box-shadow: 0 30px 60px rgba(255, 77, 109, 0.35);
     animation: pulse 4s infinite;
 }
-
 .container::before {
     content: "";
     position: absolute;
@@ -45,17 +39,14 @@ body {
     z-index: -1;
     animation: glow 6s linear infinite;
 }
-
 h1 {
     color: #ff4d6d;
     margin-bottom: 10px;
 }
-
 .subtitle {
     margin-bottom: 25px;
     color: #555;
 }
-
 button {
     padding: 12px 26px;
     border: none;
@@ -64,27 +55,20 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
 }
-
-/* 💌 OPEN BUTTON */
 #openBtn {
     background: linear-gradient(135deg, #ff4d6d, #ff85a1);
     color: white;
     box-shadow: 0 8px 20px rgba(255, 77, 109, 0.5);
 }
-
 #openBtn:hover {
     transform: scale(1.1);
 }
-
-/* 💬 MESSAGE */
 .hidden {
     display: none;
 }
-
 #message {
     margin-top: 25px;
 }
-
 .buttons {
     margin-top: 20px;
     position: relative;
@@ -94,37 +78,27 @@ button {
     align-items: center;
     gap: 25px;
 }
-
-
-/* 💖 YES BUTTON */
 #yesBtn {
     background: linear-gradient(135deg, #4caf50, #6fdc8c);
     color: white;
     margin-right: 20px;
     box-shadow: 0 6px 15px rgba(76, 175, 80, 0.5);
 }
-
 #yesBtn:hover {
     transform: scale(1.15);
 }
-
 #yesBtn:hover::after {
     content: " 🐼💖🐧";
 }
-
-/* ❌ NO BUTTON */
 #noBtn {
     background: linear-gradient(135deg, #f44336, #ff7961);
     color: white;
-    position: relative; /* IMPORTANT */
+    position: relative; 
     box-shadow: 0 6px 15px rgba(244, 67, 54, 0.5);
 }
-
-/* 😵 SHAKE */
 .shake {
     animation: shake 0.3s;
 }
-
 @keyframes shake {
     0% { transform: translateX(0); }
     25% { transform: translateX(-6px); }
@@ -132,8 +106,6 @@ button {
     75% { transform: translateX(-4px); }
     100% { transform: translateX(0); }
 }
-
-/* 💋 KISSES */
 .kiss {
     position: fixed;
     bottom: -40px;
@@ -141,7 +113,6 @@ button {
     animation: kissFloat linear forwards;
     z-index: 10;
 }
-
 @keyframes kissFloat {
     from {
         transform: translateY(0) scale(0.8);
@@ -152,28 +123,98 @@ button {
         opacity: 0;
     }
 }
-
-/* 💕 ANIMATIONS */
 @keyframes pulse {
     0%,100% { transform: scale(1); }
     50% { transform: scale(1.02); }
 }
-
 @keyframes glow {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-
 @keyframes float {
     from { transform: translateY(100vh); }
     to { transform: translateY(-120vh); }
 }
-
-/* 💌 RESPONSE */
 #response {
     margin-top: 22px;
     color: #ff4d6d;
     font-size: 18px;
     font-weight: 500;
 }
+/* Canvas for mini animation */
+#miniAnimation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(#87CEEB, #cce7ff); /* Sky gradient */
+    border: 2px solid #000;
+    border-radius: 10px;
+    z-index: 20;
+    width: 600px;
+    height: 400px;
+}
+
+/* Clouds floating animation (for extra realism if needed) */
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.9;
+    pointer-events: none;
+    animation: cloudFloat linear infinite;
+}
+
+@keyframes cloudFloat {
+    from { transform: translateX(650px); }
+    to { transform: translateX(-100px); }
+}
+
+/* Heart animation for kiss scene */
+.heart {
+    position: absolute;
+    font-size: 24px;
+    color: red;
+    opacity: 1;
+    pointer-events: none;
+    animation: heartFloat 3s ease-out forwards;
+}
+
+@keyframes heartFloat {
+    0% { transform: translateY(0) scale(0.8); opacity: 1; }
+    50% { transform: translateY(-30px) scale(1.1); opacity: 1; }
+    100% { transform: translateY(-60px) scale(1.4); opacity: 0; }
+}
+
+/* Optional: Boy walking effect (stick figure legs animation) */
+.boy-leg {
+    width: 4px;
+    height: 15px;
+    background: black;
+    position: absolute;
+    transform-origin: top center;
+    animation: walkLeg 0.5s infinite alternate;
+}
+
+@keyframes walkLeg {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(25deg); }
+}
+
+/* Optional: Plane moving propeller effect */
+.plane-propeller {
+    width: 10px;
+    height: 2px;
+    background: black;
+    position: absolute;
+    top: 12px;
+    right: -5px;
+    animation: propellerSpin 0.2s linear infinite;
+}
+
+@keyframes propellerSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+

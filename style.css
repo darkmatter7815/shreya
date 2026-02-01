@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* 💕 HEART BACKGROUND */
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 💖 MAIN CARD */
+.container {
+    position: relative;
+    z-index: 2;
+    width: 380px;
+    padding: 45px 40px;
+    text-align: center;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 30px 60px rgba(255, 77, 109, 0.35);
+    animation: pulse 4s infinite;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 30px;
+    background: linear-gradient(120deg, #ff4d6d, #ff85a1, #ffd6e0);
+    z-index: -1;
+    animation: glow 6s linear infinite;
+}
+
+h1 {
+    color: #ff4d6d;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+button {
+    padding: 12px 26px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* 💌 OPEN BUTTON */
+#openBtn {
+    background: linear-gradient(135deg, #ff4d6d, #ff85a1);
+    color: white;
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.5);
+}
+
+#openBtn:hover {
+    transform: scale(1.1);
+}
+
+/* 💬 MESSAGE */
+.hidden {
+    display: none;
+}
+
+#message {
+    margin-top: 25px;
+}
+
+.buttons {
+    margin-top: 20px;
+    position: relative;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+
+/* 💖 YES BUTTON */
+#yesBtn {
+    background: linear-gradient(135deg, #4caf50, #6fdc8c);
+    color: white;
+    margin-right: 20px;
+    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.5);
+}
+
+#yesBtn:hover {
+    transform: scale(1.15);
+}
+
+#yesBtn:hover::after {
+    content: " 🐼💖🐧";
+}
+
+/* ❌ NO BUTTON */
+#noBtn {
+    background: linear-gradient(135deg, #f44336, #ff7961);
+    color: white;
+    position: relative; /* IMPORTANT */
+    box-shadow: 0 6px 15px rgba(244, 67, 54, 0.5);
+}
+
+/* 😵 SHAKE */
+.shake {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
+/* 💋 KISSES */
+.kiss {
+    position: fixed;
+    bottom: -40px;
+    font-size: 30px;
+    animation: kissFloat linear forwards;
+    z-index: 10;
+}
+
+@keyframes kissFloat {
+    from {
+        transform: translateY(0) scale(0.8);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-120vh) scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* 💕 ANIMATIONS */
+@keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes glow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-120vh); }
+}
+
+/* 💌 RESPONSE */
+#response {
+    margin-top: 22px;
+    color: #ff4d6d;
+    font-size: 18px;
+    font-weight: 500;
+}
